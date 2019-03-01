@@ -7,11 +7,6 @@ import { Points } from "../api/points.js";
 
 class CanvasPaint extends Component {
   redraw() {
-    // Points.insert({
-    //   x: Math.random()*400,
-    //   y: Math.random()*400,
-    //   player: "John"
-    // });
     const ctx = this.canvas.getContext("2d");
 
     ctx.fillStyle = "olive";
@@ -30,6 +25,21 @@ class CanvasPaint extends Component {
     this.redraw();
   }
 
+  onClick(evt) {
+    // Get the coords
+    const x = evt.clientX - this.canvas.offsetLeft,
+      y =  evt.clientY - this.canvas.offsetTop;
+
+    console.log("Click on ", x, y);
+
+    // Insert in the database. Meteor will automatically redraw the component when the db changes
+    Points.insert({
+      x,
+      y,
+      player: Meteor.user().username
+    });
+  }
+
   render() {
     return (
       <div>
@@ -39,6 +49,7 @@ class CanvasPaint extends Component {
           height="400"
           style={{ backgroundColor: "#eee" }}
           ref={canvas => (this.canvas = canvas)}
+          onClick = {this.onClick.bind(this)}
         />
       </div>
     );
