@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Meteor } from "meteor/meteor";
-import { withTracker } from 'meteor/react-meteor-data';
+import { withTracker } from "meteor/react-meteor-data";
+
+import Points from "../api/points.js";
 
 
 import CanvasPaint from "./CanvasPaint.jsx";
