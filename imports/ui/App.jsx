@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { Meteor } from "meteor/meteor";
 import { withTracker } from "meteor/react-meteor-data";
 
-import Points from "../api/points.js";
+//import Points from "../api/points.js";
+import Area from "../api/area.js";
+import ColorBoard from "../api/colorBoard.js";
 
 
 import CanvasPaint from "./CanvasPaint.jsx";
@@ -21,7 +23,6 @@ class App extends Component {
           <div>Please login to play!</div>
         }
 
-        <div>Made by John with ♥️</div>
       </div>
     );
   }
