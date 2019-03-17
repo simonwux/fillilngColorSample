@@ -24,7 +24,6 @@ class CanvasPaint extends Component {
     console.log("all colors", this.props.color.allColor);
     for (const p of this.props.color.allColor) {
       ctx.fillStyle = p.color;
-      console.log("all colors", p);
       ctx.fillRect(p.x * 20,  p.y * 20, 20, 20);
     }
   }
@@ -47,7 +46,8 @@ class CanvasPaint extends Component {
 
     const insertX = Math.floor(x/10);
     const insertY = Math.floor(y/10);
-
+    console.log("click", insertX, insertY);
+    console.log("click", boardX, boardY);
     var flag = false; //area.click
     for (const p of this.props.area) {
       for (const cood of p.coordinate){
